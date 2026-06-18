@@ -1,0 +1,544 @@
+/* ====== Fonts ====== */
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("../Шрифты/Cormorant Garamond (заголовки)/01 CormorantGaramond-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("../Шрифты/Cormorant Garamond (заголовки)/CormorantGaramond-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("../Шрифты/Cormorant Garamond (заголовки)/CormorantGaramond-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("../Шрифты/Cormorant Garamond (заголовки)/CormorantGaramond-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EB Garamond";
+  src: url("../Шрифты/EB Garamond (основной)/01 EBGaramond-Regular.otf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "EB Garamond";
+  src: url("../Шрифты/EB Garamond (основной)/EBGaramond-Medium.otf");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "EB Garamond";
+  src: url("../Шрифты/EB Garamond (основной)/EBGaramond-Bold.otf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Marianna";
+  src: url("../Шрифты/Marianna (курсив)/marianna.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* ====== Base ====== */
+
+:root {
+  --bg: #fdf1e5;
+  --ink: #55402d;
+  --petal-1: #c3a8d1;
+  --petal-2: #e3a8b8;
+  --petal-3: #a8a062;
+  --petal-4: #a3c4d6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "EB Garamond", serif;
+  font-size: 17px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+.serif {
+  font-family: "Cormorant Garamond", serif;
+}
+
+.script {
+  font-family: "Marianna", cursive;
+}
+
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 28px;
+  text-align: center;
+}
+
+.block {
+  position: relative;
+  background: var(--bg);
+  padding-bottom: 64px;
+  /* overflow: hidden; */
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.block.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.block-title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: clamp(42px, 11vw, 56px);
+  color: var(--ink);
+}
+
+.script-sub {
+  font-family: "Marianna", cursive;
+  font-weight: 400;
+  font-size: clamp(26px, 7vw, 34px);
+  color: var(--ink);
+  margin-top: 2px;
+  margin-bottom: 28px;
+}
+
+.script-sub--tight {
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  font-family: "EB Garamond", serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: 18px;
+  margin: 18px 0 10px;
+}
+
+.eyebrow--tight {
+  margin: 0 12px;
+  white-space: nowrap;
+}
+
+.heart-icon {
+  width: 28px;
+  margin: 18px auto;
+}
+
+.divider {
+  width: 220px;
+  margin: 24px auto;
+}
+
+p {
+  margin: 0 0 6px;
+}
+
+/* ====== Block 1: Hero ====== */
+
+.hero {
+  padding-bottom: 56px;
+  overflow: hidden;
+  transform: none;
+}
+
+.hero-frame {
+  position: relative;
+}
+
+.hero-stage {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+}
+
+.hero-photo {
+  width: 100%;
+  display: block;
+}
+
+.hero-names {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  text-align: center;
+  color: var(--ink);
+  font-size: clamp(38px, 11vw, 54px);
+  font-weight: 600;
+}
+
+.hero-side {
+  position: absolute;
+  width: 38%;
+  max-width: 190px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.hero-side--left {
+  left: -16px;
+  top: 11%;
+}
+
+.hero-side--right {
+  right: -16px;
+  top: 8%;
+}
+
+.hero-seam {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  line-height: 0;
+}
+
+.hero-seam::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
+  background: var(--bg);
+}
+
+.hero-tear {
+  width: 100%;
+  aspect-ratio: 825 / 369;
+  background-color: var(--bg);
+  transform: scale(1.2) translateY(18px);
+  transform-origin: center bottom;
+  -webkit-mask-image: url("../картинки_1_блока/обрыв.png");
+  mask-image: url("../картинки_1_блока/обрыв.png");
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.hero-date {
+  position: absolute;
+  width: 160px;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero-text {
+  margin-top: -66px;
+  z-index: 1;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .hero-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-names {
+    position: static;
+    margin-bottom: 24px;
+  }
+
+  .hero-stage {
+    width: 500px;
+    max-width: 90vw;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  .hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  
+  .hero-text {
+    margin-top: 24px;
+  }
+
+  .hero-tear {
+    transform: scale(1.2) translateY(125px);
+  }
+
+  .hero-seam::before {
+    display: none;
+  }
+
+  .hero-date {
+    top: 126px;
+  }
+}
+
+.flanked {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 14px 0;
+  max-width: 100%;
+}
+
+.flank {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 22px;
+  width: auto;
+  object-fit: contain;
+}
+
+.flank--left {
+  object-position: right;
+}
+
+.flank--right {
+  object-position: left;
+}
+
+/* ====== Block 2: Date & place ====== */
+
+.date-strip {
+  width: 100%;
+  max-width: 380px;
+  margin: 8px auto 0;
+}
+
+.venue-name {
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.venue-photo-wrap {
+  position: relative;
+  margin: 0 auto;
+}
+
+.venue-photo {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.side-flower {
+  position: absolute;
+  width: 78px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.side-flower--left {
+  left: -22px;
+  bottom: -22px;
+}
+
+.side-flower--right {
+  right: -2px;
+  top: -33px;
+  transform: rotate(270deg);
+}
+
+.address {
+  margin-top: 18px;
+  letter-spacing: 0.02em;
+}
+
+/* ====== Block 3: Timing ====== */
+
+.schedule-img {
+  width: 100%;
+  max-width: 380px;
+  margin: 8px auto 0;
+  border-radius: 4px;
+}
+
+.bottom-flowers {
+  width: 100%;
+  max-width: 320px;
+  margin: -8px auto 0;
+}
+
+/* ====== Block 4: Dress code ====== */
+
+.dresscode-wrap {
+  position: relative;
+  margin-top: 8px;
+}
+
+.dresscode-img {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.dresscode-flower {
+  position: absolute;
+  width: 130px;
+  right: -28px;
+  top: 38px;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+/* ====== Block 5: Wishes ====== */
+
+#block-5 .container {
+  position: relative;
+}
+
+.corner-flower {
+  position: absolute;
+  width: 110px;
+  pointer-events: none;
+}
+
+.corner-flower--top-left {
+  top: -55px;
+  left: 0px;
+  transform: rotate(45deg);
+}
+
+.corner-flower--top-left-cw {
+  top: 16px;
+  left: -16px;
+  transform: rotate(90deg);
+  width: 130px;
+}
+
+.wish {
+  margin: 8px 0 6px;
+}
+
+.wish-icon {
+  width: 96px;
+  margin: 0 auto 6px;
+}
+
+/* ====== Block 6: Countdown / RSVP ====== */
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin: 8px 0 8px;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 52px;
+}
+
+.countdown-item span {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 1;
+}
+
+.countdown-item small {
+  display: inline-block;
+  min-width: 64px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.organizer {
+  margin-top: 10px;
+}
+
+.organizer a {
+  white-space: nowrap;
+}
+
+#block-6 .container {
+  position: relative;
+}
+
+/* ====== Falling petals ====== */
+
+.petals-layer {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 40;
+}
+
+.petal {
+  position: absolute;
+  top: -6%;
+  width: 14px;
+  height: 14px;
+  border-radius: 0 60% 60% 60%;
+  opacity: 0.6;
+  animation: petal-fall linear forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes petal-fall {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(var(--drift), 112vh) rotate(var(--spin));
+    opacity: 0.1;
+  }
+}
+
+/* ====== Small screens fine-tuning ====== */
+
+@media (max-width: 360px) {
+  .container {
+    padding: 0 20px;
+  }
+  .countdown {
+    gap: 12px;
+  }
+}
