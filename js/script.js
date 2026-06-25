@@ -154,4 +154,71 @@
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
+
+  /* ====== Map modal ====== */
+
+  var mapBtn = document.querySelector(".map-btn");
+  var mapModal = document.getElementById("map-modal");
+  var mapModalClose = document.getElementById("map-modal-close");
+  var mapInited = false;
+  var ymapInstance = null;
+
+  function openMapModal(e) {
+    e.preventDefault();
+    mapModal.classList.add("is-open");
+    mapModal.setAttribute("aria-hidden", "false");
+    if (!mapInited) {
+      mapInited = true;
+      loadYandexMaps(initYMap);
+    } else if (ymapInstance) {
+      ymapInstance.container.fitToViewport();
+    }
+  }
+
+  function closeMapModal() {
+    mapModal.classList.remove("is-open");
+    mapModal.setAttribute("aria-hidden", "true");
+  }
+
+  mapBtn.addEventListener("click", openMapModal);
+  mapModalClose.addEventListener("click", closeMapModal);
+  mapModal.addEventListener("click", function (e) {
+    if (e.target === mapModal) closeMapModal();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeMapModal();
+  });
+
+  function loadYandexMaps(callback) {
+    var script = document.createElement("script");
+    script.src = "https://api-maps.yandex.ru/2.1/?apikey=14252a93-deba-4120-84a9-2bffaa80cf4c&lang=ru_RU";
+    script.onload = callback;
+    document.head.appendChild(script);
+  }
+
+  function initYMap() {
+    ymaps.ready(function () {
+      var coords = [56.341842, 84.933689];
+      ymapInstance = new ymaps.Map("ymap", {
+        center: coords,
+        zoom: 16,
+        controls: ["zoomControl", "fullscreenControl"]
+      });
+
+      var placemark = new ymaps.Placemark(coords, {
+        balloonContentHeader: "Гостевой комплекс «Утес»",
+        balloonContentBody: "пос. Синий Утес, 61"
+      }, {
+        preset: "islands#redDotIconWithCaption",
+        iconCaption: "Гостевой комплекс «Утес»"
+      });
+
+      ymapInstance.geoObjects.add(placemark);
+      placemark.balloon.open();
+    });
+  }
+
+  window.addEventListener("resize", function () {
+    if (ymapInstance) ymapInstance.container.fitToViewport();
+  });
 })();

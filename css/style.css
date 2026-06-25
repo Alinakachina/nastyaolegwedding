@@ -122,19 +122,29 @@ a {
   transform: translateY(0);
 }
 
+.block-title mark {
+  font-family: serif;
+  background-color: transparent;
+  color: var(--ink);
+  font-size: 14px;
+  vertical-align: text-top;
+  display: inline-block;
+  margin-top: 20px;
+}
 .block-title {
   font-family: "Cormorant Garamond", serif;
-  font-weight: 600;
-  font-size: clamp(42px, 11vw, 56px);
+  font-weight: 400;
+  font-size: 48px;
   color: var(--ink);
+  text-transform: uppercase;
 }
 
 .script-sub {
   font-family: "Marianna", cursive;
   font-weight: 400;
-  font-size: clamp(26px, 7vw, 34px);
+  font-size: 48px;
   color: var(--ink);
-  margin-top: 2px;
+  margin-top: -34px;
   margin-bottom: 28px;
 }
 
@@ -156,12 +166,12 @@ a {
 }
 
 .heart-icon {
-  width: 28px;
+  width: 20px;
   margin: 18px auto;
 }
 
 .divider {
-  width: 220px;
+  width: 109px;
   margin: 24px auto;
 }
 
@@ -200,8 +210,14 @@ p {
   z-index: 5;
   text-align: center;
   color: var(--ink);
-  font-size: clamp(38px, 11vw, 54px);
-  font-weight: 600;
+  font-size: 54px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.hero-names .script,
+.block-title .script {
+  text-transform: none;
 }
 
 .hero-side {
@@ -343,7 +359,7 @@ p {
 .date-strip {
   width: 100%;
   max-width: 380px;
-  margin: 8px auto 0;
+  margin: -52px auto 0;
 }
 
 .venue-name {
@@ -384,6 +400,70 @@ p {
   letter-spacing: 0.02em;
 }
 
+.map-btn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 32px;
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  font-family: "EB Garamond", serif;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.map-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.map-modal.is-open {
+  display: flex;
+}
+
+.map-modal__inner {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+#ymap {
+  width: 100%;
+  height: 420px;
+  display: block;
+}
+
+.map-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  width: 32px;
+  height: 32px;
+  background: var(--bg);
+  border: none;
+  border-radius: 50%;
+  font-size: 16px;
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
 /* ====== Block 3: Timing ====== */
 
 .schedule-img {
@@ -396,7 +476,7 @@ p {
 .bottom-flowers {
   width: 100%;
   max-width: 320px;
-  margin: -8px auto 0;
+  margin: 24px auto 0;
 }
 
 /* ====== Block 4: Dress code ====== */
@@ -434,16 +514,17 @@ p {
 }
 
 .corner-flower--top-left {
-  top: -55px;
-  left: 0px;
+  top: -27px;
+  left: -2px;
+  width: 72px;
   transform: rotate(45deg);
 }
 
 .corner-flower--top-left-cw {
-  top: 16px;
-  left: -16px;
+  top: 4px;
+  left: -28px;
   transform: rotate(90deg);
-  width: 130px;
+  width: 100px;
 }
 
 .wish {
@@ -488,8 +569,17 @@ p {
   text-transform: uppercase;
 }
 
+.organizers {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0 auto;
+}
+
 .organizer {
   margin-top: 10px;
+  width: fit-content;
 }
 
 .organizer a {
