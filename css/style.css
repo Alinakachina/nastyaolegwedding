@@ -229,32 +229,17 @@ p {
 }
 
 .hero-side--left {
-  left: -16px;
+  left: -34px;
   top: 11%;
 }
 
 .hero-side--right {
-  right: -16px;
+  right: -34px;
   top: 8%;
 }
 
 .hero-seam {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  line-height: 0;
-}
-
-.hero-seam::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 50%;
-  background: var(--bg);
+  position: relative;
 }
 
 .hero-tear {
@@ -274,7 +259,7 @@ p {
 .hero-date {
   position: absolute;
   width: 160px;
-  top: 0;
+  top: 30px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -326,7 +311,7 @@ p {
   }
 
   .hero-date {
-    top: 126px;
+    top: -390px;
   }
 }
 
@@ -515,7 +500,7 @@ p {
 
 .corner-flower--top-left {
   top: -27px;
-  left: -2px;
+  left: -21px;
   width: 72px;
   transform: rotate(45deg);
 }
